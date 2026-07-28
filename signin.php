@@ -1,6 +1,7 @@
 <?php
 include "config/koneksi.php";
-
+session_start();
+session_regenerate_id();
 if (isset($_POST['login'])) {
   $email = $_POST['email'];
   $pass = $_POST['password'];
@@ -11,6 +12,7 @@ if (isset($_POST['login'])) {
   // var_dump($row);
 
   if ($email == $row['email'] && $pass == $row['password']) {
+    $_SESSION['NAME'] = $row['name'];
     // KALAU BERHASIL MASUK KE DASHBOARD
     header("location:dashboard.php");
     exit();
