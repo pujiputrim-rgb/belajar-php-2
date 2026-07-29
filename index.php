@@ -2,12 +2,12 @@
 include "config/koneksi.php";
 session_start();
 session_regenerate_id();
-if (isset($_POST['login'])) {
+if (isset($_POST['login'])) { // jika tombol login di klik
   $email = $_POST['email'];
   $pass = $_POST['password'];
 
   $login = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
-  
+  // object {num_row:10, error:}
   $row = mysqli_fetch_assoc($login);
   // var_dump($row);
 
@@ -15,7 +15,6 @@ if (isset($_POST['login'])) {
     $_SESSION['NAME'] = $row['name'];
     // KALAU BERHASIL MASUK KE DASHBOARD
     header("location:dashboard.php");
-    exit();
   } else {
     // KALAU GAGAL TETAP DI LOGIN
     header("location:signin.php");

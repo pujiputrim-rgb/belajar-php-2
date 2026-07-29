@@ -36,6 +36,16 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a
+
+                            href="user.php"
+
+                            aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                            <p>User</p>
+                        </a>
+                    </li>
                     <!-- <li class="nav-section">
                         <span class="sidebar-mini-icon">
                             <i class="fa fa-ellipsis-h"></i>
