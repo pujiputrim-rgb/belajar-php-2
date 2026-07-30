@@ -46,6 +46,38 @@
                             <p>User</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a
+
+                            href="sliders.php"
+                            aria-expanded="false">
+                            <i class="fa fa-image"></i>
+                            <p>Slider</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+
+                            href="contacts.php"
+
+                            aria-expanded="false">
+                            <i class="fa fa-address-book"></i>
+                            <p>Contacts</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+
+                            href="settings.php"
+
+                            aria-expanded="false">
+                            <i class="fa fa-wrench"></i>
+                            <p>Settings</p>
+                        </a>
+                    </li>
+
+
                     <!-- <li class="nav-section">
                         <span class="sidebar-mini-icon">
                             <i class="fa fa-ellipsis-h"></i>
