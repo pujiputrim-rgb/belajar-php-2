@@ -16,8 +16,17 @@ $rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
 // jika params delete ada 
 if (isset($_GET['delete'])) {
   $delete = $_GET['delete'];
+  
+  $img = mysqli_query($conn, "SELECT image FROM sliders WHERE id='$delete'");
+  $rowImg = mysqli_fetch_assoc($img);
+  if ($delete && !empty($rowImg['image'])) {
+    $old_picture_path = "assets/img/" . $rowImg['image'];
+    if (file_exists($old_picture_path)) {
+      unlink($old_picture_path);
+    }
+  }
   $delete = mysqli_query($conn, "DELETE FROM sliders WHERE id='$delete'");
-  header("location:user.php?hapus=berhasil");
+  header("location:sliders.php?hapus=berhasil");
 }
 
 
@@ -110,16 +119,17 @@ if (isset($_GET['delete'])) {
                         <tr>
                           <td><?php echo $index += 1 ?></td>
                           <td><?php echo $row['title'] ?></td>
-                          <td><?php echo $row['image'] ?></td>
+                          <td><img src="assets/img/<?php echo $row['image'] ?>"
+                              width="170" alt=""></td>
                           <td><?php echo $row['subtitle'] ?></td>
                           <td><?php echo $row['description'] ?></td>
                           <td>
                             <a class="btn btn-success btn-sm"
-                              href="create-sliders.php?edit=<?php echo $row['id'] ?>">Detail</a>
+                              href="create-sliders.php?edit=<?php echo $row['id'] ?>">Edit</a>
 
                             <a onclick="return confirm('Are you sure want to delete this data?')"
                               class="btn btn-danger btn-sm"
-                              href="contact.php?delete=<?php echo $row['id'] ?>">Delete</a>
+                              href="sliders.php?delete=<?php echo $row['id'] ?>">Delete</a>
                           </td>
                         </tr>
                       <?php endforeach ?>

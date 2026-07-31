@@ -2,7 +2,7 @@
 session_start();
 session_regenerate_id();
 if (!isset($_SESSION ['NAME'])){
-  header("location:signin.php");
+  header("location:index.php");
   exit();
 }
 

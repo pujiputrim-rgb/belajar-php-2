@@ -29,7 +29,7 @@
                     <li class="nav-item active">
                         <a
 
-                            href="#dashboard"
+                            href="dashboard.php"
 
                             aria-expanded="false">
                             <i class="fas fa-home"></i>

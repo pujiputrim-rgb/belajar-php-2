@@ -4,7 +4,7 @@ session_start();
 session_regenerate_id();
 if (isset($_POST['login'])) { // jika tombol login di klik
   $email = $_POST['email'];
-  $pass = $_POST['password'];
+  $pass = sha1($_POST['password']);
 
   $login = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
   // object {num_row:10, error:}
@@ -17,7 +17,7 @@ if (isset($_POST['login'])) { // jika tombol login di klik
     header("location:dashboard.php");
   } else {
     // KALAU GAGAL TETAP DI LOGIN
-    header("location:signin.php");
+    header("location:index.php");
     exit();
   }
 }

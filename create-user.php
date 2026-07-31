@@ -17,17 +17,18 @@ if (isset($_POST['save'])) {
   $name     = $_POST['name'];
   $email    = $_POST['email'];
   $password = $_POST['password'] ? $_POST['password'] : $row['password'];
+  $pass = sha1($password);
 
   // masukan kedalam users sebutkan kolom di table user nilainya 
   //diambil dari user nginput 
   if ($id) {
     // query update
     $update = mysqli_query($conn, "UPDATE users SET name='$name',
-    email= '$email', password='$password' WHERE id='$id'");
+    email= '$email', password='$pass' WHERE id='$id'");
     header("location:user.php?update-berhasil");
   } else {
     $insert = mysqli_query($conn, "INSERT INTO users (name, email, password) 
-  VALUES ('$name','$email','$password')");
+  VALUES ('$name','$email','$pass')");
     header("location:user.php?tambah-berhasil");
   }
 }
